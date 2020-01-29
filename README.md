@@ -3,7 +3,7 @@ This is my .vim/vimrc setting
 # How to clone
 
 
-git checkout https://github.com/lightvision/.vim.git .git
+git clone https://github.com/lightvision/.vim.git .vim
 
 
 # TODO
