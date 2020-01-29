@@ -6,3 +6,5 @@ This is my .vim/vimrc setting
 git checkout https://github.com/lightvision/.vim.git .git
 
 
+# TODO
+To add some screenshots.
