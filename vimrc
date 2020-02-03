@@ -84,6 +84,20 @@ Plug 'tpope/vim-repeat'
 " A git wrapper
 Plug 'tpope/vim-fugitive'
 
+" Search for Tasks: TODO, FIXME
+Plug 'gilsondev/searchtasks.vim'
+
+" ALE (Asynchronous Lint Engine)
+Plug 'dense-analysis/ale'
+
+" Vim Terminal in an interactive buffer
+"Plug 'tc50cal/vim-terminal'
+
+" Trebuie verificat
+" Plug 'bagrat/vim-buffet'
+
+Plug 'majutsushi/tagbar'
+
 call plug#end()
 
 " }}}
@@ -171,7 +185,16 @@ set wildmenu
 set wildmode=list:longest,full
 
 set showmatch
-set showmode | " show mode when running on vi
+
+if has("autocmd")
+    set showmode | " show mode when running on vi, otherwise we have airline
+endif
+
+if (has("termguicolors"))
+    set termguicolors
+endif
+
+set background=dark
 
 " }}}
 
@@ -205,7 +228,7 @@ let g:airline#extensions#tabline#enabled = 1
 " }}}
 
 " Vim IndentGuides settings {{{
-let g:indentguides_ignorelist = ['txt']
+let g:indentguides_ignorelist = ['txt', 'help']
 let g:indentguides_spacechar = ''
 let g:indentguides_tabchar = ''
 " }}}
@@ -214,9 +237,21 @@ let g:indentguides_tabchar = ''
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " }}}
 
+"let g:buffet_powerline_separators = 1
+"let g:buffet_tab_icon = "\uf00a"
+"let g:buffet_left_trunc_icon = "\uf0a8"
+"let g:buffet_right_trunc_icon = "\uf0a9"
+
 " }}}
 
+" Search Tasks plugin configuration {{{
+" List occurrences for search
+let g:searchtasks_list=["TODO", "FIXME", "XXX"]
+"}}}
 
+" ALE settings {{{
+let g:airline#extensions#ale#enabled = 1
+" }}}
 
 " ===  File settings  ===================================================== {{{
 "
